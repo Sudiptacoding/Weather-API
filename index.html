@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<style>
+    body{
+        background-color: tomato;
+    }
+</style>
+<body>
+    <h1>I am a new web developer</h1>
+    <input id="Country_name" type="text">
+    <button onclick="EnterCountry()">Click Me</button>
+    <div id="icon">icon</div>
+    <img src="" alt="">
+
+    <script>
+// let weather = {
+//     "apiKey":"8d5ca98b8bac4e5eb736ba40d9dcd9c7"
+// }
+
+
+
+
+        // fetch(`https://api.openweathermap.org/data/2.5/weather?q=${}&appid=${apiKey}`)
+        // .then(res => res.json())
+        // .then(json => console.log(json))
+
+        function EnterCountry(){
+
+            const apiKey = "8d5ca98b8bac4e5eb736ba40d9dcd9c7";
+            const countryName = document.getElementById('Country_name').value;
+
+            fetch(`https://api.openweathermap.org/data/2.5/weather?q=${countryName}&units=metric&appid=${apiKey}`)
+            .then(res => res.json())
+            .then(json => devided(json))
+
+            function devided(X){
+                // const Temp = X.main.temp;
+                // const change = Math.floor(Temp);
+                console.log(X);
+                // const Weather = X.weather[0];
+                // const Id = Weather.icon;
+                // console.log(Id);
+                // icon(Id);
+
+
+            }
+
+            function icon(Y){
+            const Icon = document.getElementById('icon');
+
+            // Icon.innerText = `https://openweathermap.org/img/wn/${Y}@2x.png`;
+            Icon.innerHTML = ` <img src="https://openweathermap.org/img/wn/${Y}@2x.png" alt=""> `;
+
+        }
+
+        }
+
+
+    </script>
+</body>
+</html>
